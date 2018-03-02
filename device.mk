@@ -103,13 +103,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# Alipay
-PRODUCT_PACKAGES += \
-    org.ifaa.android.manager
-
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
-
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -148,9 +141,6 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
-PRODUCT_COPY_FILES += \
-    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
-
 # Bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/iot_devlist.conf:system/etc/bluetooth/iot_devlist.conf
@@ -179,10 +169,6 @@ PRODUCT_PACKAGES += \
     FOSSConfig.xml \
     qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml \
     qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
-
-# Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -219,11 +205,6 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
-
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
-    $(LOCAL_PATH)/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl
 
 # Lights
 PRODUCT_PACKAGES += \
