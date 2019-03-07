@@ -308,6 +308,17 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/lib/udev/rules.d/70-oneplus3.rules \
+    $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/usr/lib/lxc-android-config/70-oneplus3.rules \
+    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/adbd.conf \
+    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/android-tools-adb.conf \
+    $(LOCAL_PATH)/ubuntu/ofono.override:system/halium/etc/init/ofono.override \
+    $(LOCAL_PATH)/ubuntu/config.xml:system/halium/usr/share/powerd/device_configs/config-default.xml \
+    $(LOCAL_PATH)/ubuntu/config.xml:system/halium/usr/share/powerd/device_configs/config-oneplus2.xml \
+    $(LOCAL_PATH)/ubuntu/android.conf:system/halium/etc/ubuntu-touch-session.d/android.conf
+#   need to be optimized
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
