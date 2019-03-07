@@ -25,8 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.usb.rc
-import init.target.rc
+#import init.qcom.usb.rc
+#import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -314,7 +314,8 @@ on post-fs-data
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
     rm /data/system/perfd/default_values
-    start perfd
+    # tmp disabled
+    # start perfd
 
     # NFC local data and nfcee xml storage
     mkdir /data/nfc 0770 nfc nfc
@@ -787,6 +788,7 @@ service cnss-daemon /system/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet net_admin wifi
+    disabled
 
 on property:sys.shutdown.requested=*
     stop cnss-daemon
@@ -825,10 +827,12 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
+# tmp disabled
 service sensor-sh /system/bin/sh /init.qcom.sensors.sh
     class core
     user root
     oneshot
+    disabled
 
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     class late_start
@@ -1035,6 +1039,7 @@ service RIDL /system/vendor/bin/RIDLClient.exe
     oneshot
     user system
     group system inet log sdcard_r sdcard_rw qcom_diag
+    disabled
     # removed for security team - misc bluetooth radio gps wifi diag media_rw
     # limited to 12 groups.  Unused: audio usb net_bt_admin net_bt_stac net_raw net_admin
 
@@ -1059,17 +1064,20 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     user system
     group system
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service esepmdaemon /system/vendor/bin/esepmdaemon
     class core
     user system
     group nfc
+    disabled
 
 # Seemp health service
 service seemp_healthd /system/vendor/bin/seemp_healthd
     class late_start
     user system
     group system
+    disabled
 
 on charger
     setprop persist.sys.usb.config charging
