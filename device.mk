@@ -100,6 +100,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=3072 \
     ro.hwui.text_large_cache_height=2048
 
+# Mir
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.qti_bsp.abi=1
+
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
