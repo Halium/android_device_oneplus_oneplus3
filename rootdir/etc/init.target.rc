@@ -46,6 +46,7 @@ on fs
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8996.so|libcamera_shim.so
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -145,6 +146,8 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/hbm
     chown system graphics /sys/class/graphics/fb0/srgb
     chmod 0664 /sys/class/graphics/fb0/srgb
+    chown system graphics /sys/class/graphics/fb0/dci_p3
+    chmod 0664 /sys/class/graphics/fb0/dci_p3
 
     # Fingerprint
     chmod 0664 /sys/devices/soc/soc:fpc_fpc1020/irq
@@ -245,7 +248,7 @@ service qvrd /system/vendor/bin/qvrservice
 service per_mgr /system/bin/pm-service
     class core
     user system
-    group system net_raw
+    group system
     ioprio rt 4
     writepid /dev/cpuset/system-background/tasks
 
@@ -296,7 +299,7 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
-writepid /dev/cpuset/system-background/tasks
+   writepid /dev/cpuset/system-background/tasks
 
 service gamed /system/vendor/bin/gamed
    class main
@@ -346,11 +349,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-   writepid /dev/cpuset/system-background/tasks
 
 service adsprpcd /system/bin/adsprpcd
    class main
