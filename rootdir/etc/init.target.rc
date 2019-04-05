@@ -90,7 +90,7 @@ on boot
     mkdir /data/misc/sensors
     chmod 0775 /data/misc/sensors
     # tmp disabled
-    # start sensors
+    start sensors
 
     # Touchscreen
     chown system radio /proc/touchpanel/double_tap_enable
