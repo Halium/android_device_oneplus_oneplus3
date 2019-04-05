@@ -27,7 +27,7 @@ enable_bt () {
 
 while true; do
     sleep 2
-    if [ ! -f /sys/devices/pci0001:00/0001:00:00.0/0001:01:00.0/net/wlP1p1s0/address ]; then
+    if [ ! -f /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlp1s0/address ]; then
         echo sta > /sys/module/wlan/parameters/fwpath
     else
         # enable bluetooth here since we have to wait for wlan to be initialized
