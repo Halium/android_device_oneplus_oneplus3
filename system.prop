@@ -140,18 +140,6 @@ persist.timed.enable=true
 # Wifi
 wifi.interface=wlan0
 
-# Halium temporary workaround oneplus3T
-# ro.build.product=OnePlus3
-# ro.product.device=OnePlus3T
-# ro.build.description=OnePlus3-user 7.1.1 NMF26F 48 dev-keys
-# ro.build.fingerprint=OnePlus/OnePlus3/OnePlus3T:7.1.1/NMF26F/05151900:user/release-keys
-
-# Halium temporary workaround oneplus3
-ro.build.product=OnePlus3
-ro.product.device=OnePlus3
-ro.build.description=OnePlus3-user 7.1.1 NMF26F 63 dev-keys
-ro.build.fingerprint=OnePlus/OnePlus3/OnePlus3:7.1.1/NMF26F/05151830:user/release-keys
-
 # Mir
 ro.build.qti_bsp.abi=1
 
