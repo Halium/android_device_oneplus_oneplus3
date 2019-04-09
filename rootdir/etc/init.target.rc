@@ -89,7 +89,6 @@ on boot
     chown system root /persist/sensors/gyro_sensitity_cal
     mkdir /data/misc/sensors
     chmod 0775 /data/misc/sensors
-    # tmp disabled
     start sensors
 
     # Touchscreen
