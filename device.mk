@@ -344,6 +344,44 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/bluetooth-touch-oneplus3.conf:system/halium/etc/init/bluetooth-touch-android.conf \
     $(LOCAL_PATH)/ubuntu/touch.pa:system/halium/etc/pulse/touch.pa \
     $(LOCAL_PATH)/ubuntu/anbox-tool:system/halium/usr/bin/anbox-tool
+# UBPorts
+ PRODUCT_PACKAGES += \
+     libubuntu_application_api \
+     direct_ubuntu_application_sensors_c_api_for_hybris_test \
+     direct_ubuntu_application_sensors_for_hybris_test \
+     direct_ubuntu_application_gps_c_api_for_hybris_test \
+     libcamera_compat_layer \
+     libmedia_compat_layer_32 \
+     libaudioflingerglue \
+     libdroidmedia \
+     libminisf
+
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.qti.sdk.sensors.gestures=true \
+#    ro.qti.sensors.pedometer=true \
+#    ro.qti.sensors.step_detector=true \
+#    ro.qti.sensors.step_counter=true \
+#    ro.qti.sensors.pam=true \
+#    ro.qti.sensors.scrn_ortn=true \
+#    ro.qti.sensors.smd=true \
+#    ro.qti.sensors.game_rv=true \
+#    ro.qti.sensors.georv=true \
+#    ro.qti.sensors.cmc=true \
+#    ro.qti.sensors.bte=true \
+#    ro.qti.sensors.fns=true \
+#    ro.qti.sensors.qmd=true \
+#    ro.qti.sensors.amd=true \
+#    ro.qti.sensors.rmd=true \
+#    ro.qti.sensors.vmd=true \
+#    ro.qti.sensors.gtap=true \
+#    ro.qti.sensors.tap=true \
+#    ro.qti.sensors.facing=true \
+#    ro.qti.sensors.tilt=true \
+#    ro.qti.sensors.tilt_detector=true \
+#    ro.qti.sensors.dpc=true \
+#    ro.qti.sensors.als_scale=1 \
+#    ro.qti.sensors.wu=true
+
 #aethercastctl
 PRODUCT_PROPERTY_OVERRIDES += \
     ubuntu.widi.supported=1
