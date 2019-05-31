@@ -31,7 +31,7 @@ while true; do
         echo sta > /sys/module/wlan/parameters/fwpath
     else
         # enable bluetooth here since we have to wait for wlan to be initialized
-        enable_bt
+        #enable_bt
         break
     fi
 done
