@@ -344,6 +344,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/bluetooth-touch-oneplus3.conf:system/halium/etc/init/bluetooth-touch-android.conf \
     $(LOCAL_PATH)/ubuntu/touch.pa:system/halium/etc/pulse/touch.pa \
     $(LOCAL_PATH)/ubuntu/anbox-tool:system/halium/usr/bin/anbox-tool
+#aethercastctl
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
 
 #   need to be optimized
 
