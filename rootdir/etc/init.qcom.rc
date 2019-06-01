@@ -1080,3 +1080,12 @@ service init_wlan_bt /system/bin/sh /system/etc/init_wlan_bt.sh
     user root
     group root
     oneshot
+    
+    
+service minimedia /system/bin/minimediaservice
+    class main
+    user media
+    group audio camera
+    ioprio rt 4
+#   hack to make recorded video playback work
+    setenv LD_PRELOAD /system/lib/libOmxVdec.so
