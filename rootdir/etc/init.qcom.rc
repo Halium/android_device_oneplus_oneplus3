@@ -1089,3 +1089,8 @@ service minimedia /system/bin/minimediaservice
     ioprio rt 4
 #   hack to make recorded video playback work
     setenv LD_PRELOAD /system/lib/libOmxVdec.so
+    
+service miniafservice /system/bin/miniafservice
+    class core
+    user root
+    group audio

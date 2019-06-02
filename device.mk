@@ -373,7 +373,8 @@ PRODUCT_COPY_FILES += \
      libaudioflingerglue \
      libdroidmedia \
      libminisf \
-     minimediaservice
+     minimediaservice \
+     miniafservice
 
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.qti.sdk.sensors.gestures=true \
