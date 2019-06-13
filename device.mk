@@ -411,7 +411,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ubuntu.widi.supported=1
 
-#   need to be optimized
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
