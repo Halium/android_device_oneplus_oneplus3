@@ -377,6 +377,10 @@ PRODUCT_COPY_FILES += \
      minimediaservice \
      miniafservice
 
+# for off charging mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.qti.sdk.sensors.gestures=true \
 #    ro.qti.sensors.pedometer=true \
