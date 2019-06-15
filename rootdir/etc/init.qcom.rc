@@ -285,7 +285,7 @@ on post-fs-data
     mkdir /data/hostapd 0770 system wifi
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
+    mkdir /data/time/ 0777 system system
 
     mkdir /data/audio/ 0770 media audio
 
@@ -371,6 +371,7 @@ service qcomsysd /system/bin/qcom-system-daemon
     class main
     user root
     group root qcom_diag
+    disabled
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
@@ -418,11 +419,11 @@ on property:sys.boot_completed=1
     #CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
-on property:persist.radio.atfwd.start=false
-    stop atfwd
+# on property:persist.radio.atfwd.start=false
+#    stop atfwd
 
-on property:radio.atfwd.start=false
-    stop atfwd
+# on property:radio.atfwd.start=false
+#    stop atfwd
 
 # corefile limit
 on property:persist.debug.trace=1
@@ -497,6 +498,7 @@ service rfs_access /system/bin/rfs_access
    user root
    group system net_raw
    writepid /dev/cpuset/system-background/tasks
+   disabled
 
 service tftp_server /system/bin/tftp_server
    class core
@@ -614,6 +616,7 @@ service qmuxd /system/bin/qmuxd
     user radio
     group radio audio bluetooth gps nfc qcom_diag
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -729,6 +732,7 @@ service ptt_socket_app /system/bin/ptt_socket_app -d
     user root
     group root
     oneshot
+    disabled
 
 service ptt_ffbm /system/bin/ptt_socket_app -f -d
     user root
@@ -835,6 +839,7 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
+    disabled
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
@@ -895,6 +900,7 @@ service usb_uicc_daemon /system/bin/usb_uicc_client
     user system
     group system log net_raw
     oneshot
+    disabled
 
 on property:sys.usb_uicc.enabled=1
     start usb_uicc_enable

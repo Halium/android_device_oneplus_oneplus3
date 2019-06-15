@@ -69,7 +69,6 @@ on property:init.svc.bootanim=running
 
 on boot
     start rmt_storage
-    start rfs_access
 # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
@@ -236,12 +235,14 @@ service qvop-daemon /system/bin/qvop-daemon
     class late_start
     user system
     group system drmrpc
+    disabled
 
 service qvrd /system/vendor/bin/qvrservice
     class late_start
     user system
     group system camera graphics
     socket qvrservice stream 0666 system system
+    disabled
 
 #Start up peripheral manager
 service per_mgr /system/bin/pm-service
@@ -312,11 +313,13 @@ service seempd /system/bin/seempd
    user system
    group system
    socket seempdw dgram 0666 system system
+   disabled
 
 service secotad /system/bin/secotad
    class late_start
    user system
    group system
+   disabled
 
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
@@ -401,6 +404,7 @@ service usf_proximity /system/bin/usf_proximity
     class late_start
     user system
     group system inet audio
+    disabled
 
 service usf_pairing /system/bin/usf_pairing
     user system
@@ -481,6 +485,7 @@ service dts_configurator /system/bin/dts_configurator
     user system
     group system media audio
     oneshot
+    disabled
 
 service dtseagleservice /system/bin/dts_eagle_service
     class late_start
@@ -488,8 +493,8 @@ service dtseagleservice /system/bin/dts_eagle_service
     group audio media
     disabled
 
-on property:init.svc.dts_configurator=stopped
-    start dtseagleservice
+# on property:init.svc.dts_configurator=stopped
+#    start dtseagleservice
 
 service ppd /system/vendor/bin/mm-pp-dpps
     class late_start
@@ -520,6 +525,7 @@ service tlocd /system/bin/tloc_daemon
     class late_start
     user system
     group drmrpc gps net_raw
+    disabled
 
 service energy-awareness /system/bin/energy-awareness
     class main
@@ -531,11 +537,13 @@ service hvdcp_opti /system/bin/hvdcp_opti
     class main
     user root
     group root
+    disabled
 
 service mdtpd /system/vendor/bin/mdtpd
    class late_start
    user root
    group system radio drmrpc
+   disabled
 
 on charger
     write /sys/devices/system/cpu/cpu2/online 0
@@ -543,7 +551,6 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    start hvdcp_opti
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKLG
 	class late_start
@@ -555,12 +562,14 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 	disabled
 	oneshot
 
+# useless (payment)
 service dashd /sbin/dashd
     class core
     critical
     seclabel u:r:dashd:s0
     group root system
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service ifaadaemon /system/bin/ifaadaemon
     class late_start
