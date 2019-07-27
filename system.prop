@@ -165,3 +165,8 @@ ro.hdmi.enable=true
 
 # Debug EGL
 # debug.egl.callstack=1
+
+# Settings for droidmedia
+camera.fifo.disable=1
+persist.camera.shutter.disable=1
+persist.media.metrics.enabled=0
