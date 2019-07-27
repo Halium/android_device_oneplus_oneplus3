@@ -170,3 +170,5 @@ ro.hdmi.enable=true
 camera.fifo.disable=1
 persist.camera.shutter.disable=1
 persist.media.metrics.enabled=0
+
+ril.num_slots=2
