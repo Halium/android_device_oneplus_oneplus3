@@ -42,6 +42,10 @@ load-module module-switch-on-connect skip_abstract=yes
 load-module module-droid-card-24
 .endif
 
+.ifexists module-droid-glue-24.so
+load-module module-droid-glue-24
+.endif
+
 ### Automatically load the trust-store module
 .ifexists module-trust-store.so
 load-module module-trust-store
