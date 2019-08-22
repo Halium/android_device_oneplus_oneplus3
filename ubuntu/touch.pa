@@ -39,7 +39,7 @@ load-module module-switch-on-connect skip_abstract=yes
 
 ### Automatically load the Pulseaudio Droid
 .ifexists module-droid-discover.so
-load-module module-droid-card-24
+load-module module-droid-card-24 rate=48000 quirks=+unload_call_exit
 .endif
 
 .ifexists module-droid-glue-24.so
