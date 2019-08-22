@@ -375,15 +375,18 @@ PRODUCT_COPY_FILES += \
     libmedia_compat_layer \
     libmedia_compat_layer_32 \
     libdroidmedia \
-    libminisf \
-    minimediaservice \
-    miniafservice \
-    libcameraservice_32 \
     libdroidmedia_32 \
-    libui_compat_layer_32 \
-    libsf_compat_layer_32 \
-    minisfservice \
+    libminisf \
     libminisf_32 \
+    miniafservice \
+    minimediaservice \
+    minisfservice \
+    libcameraservice \
+    libcameraservice_32 \
+    libui_compat_layer \
+    libui_compat_layer_32 \
+    libsf_compat_layer \
+    libsf_compat_layer_32 \
     libaudioflingerglue \
     libaudioflingerglue_32
 
