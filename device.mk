@@ -393,6 +393,12 @@ PRODUCT_COPY_FILES += \
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
+    
+    
+# telepathy-ofono quirks
+PRODUCT_PROPERTY_OVERRIDES += \
+    t-o.quirk.forcesinkprimary=1 \
+    t-o.quirk.forcesourceprimary=1
 
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.qti.sdk.sensors.gestures=true \
