@@ -345,7 +345,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/bluetooth-touch-oneplus3.conf:system/halium/etc/init/bluetooth-touch-android.conf \
     $(LOCAL_PATH)/ubuntu/touch.pa:system/halium/etc/pulse/touch.pa \
     $(LOCAL_PATH)/ubuntu/anbox-tool:system/halium/usr/bin/anbox-tool \
-    $(LOCAL_PATH)/ubuntu/switch:system/halium/usr/share/h2w/switch \
     $(LOCAL_PATH)/ubuntu/hciattach:system/bin/hciattach \
     $(LOCAL_PATH)/ubuntu/libs/libdataitems.so:system/lib/libdataitems.so \
     $(LOCAL_PATH)/ubuntu/libs/libdrplugin_client.so:system/lib/libdrplugin_client.so \
