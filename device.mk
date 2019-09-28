@@ -397,8 +397,8 @@ PRODUCT_PACKAGES += \
     
 # telepathy-ofono quirks
 PRODUCT_PROPERTY_OVERRIDES += \
-    t-o.quirk.forcesinkprimary=1 \
-    t-o.quirk.forcesourceprimary=1
+    t-o.quirk.forcesink=sink.primary_output \
+    t-o.quirk.forcesource=source.record_24_primary_input
 
 #droidmedia
 MINIMEDIA_SENSORSERVER_DISABLE := 1
