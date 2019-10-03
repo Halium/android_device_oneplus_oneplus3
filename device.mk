@@ -361,7 +361,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/libs/libloc_ds_api.so:system/lib/libloc_ds_api.so \
     $(LOCAL_PATH)/ubuntu/libs/liblowi_client.so:system/lib/liblowi_client.so \
     $(LOCAL_PATH)/ubuntu/libs/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
-    $(LOCAL_PATH)/ubuntu/libs/libulp2.so:system/lib/libulp2.so
+    $(LOCAL_PATH)/ubuntu/libs/libulp2.so:system/lib/libulp2.so \
+    $(LOCAL_PATH)/ubuntu/usr.bin.media-hub-server:system/halium/etc/apparmor.d/local/usr.bin.media-hub-server \
+    $(LOCAL_PATH)/ubuntu/base:system/halium/etc/apparmor.d/abstractions/base
 
 # UBPorts
  PRODUCT_PACKAGES += \
