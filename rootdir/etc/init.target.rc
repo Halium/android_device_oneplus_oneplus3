@@ -211,6 +211,21 @@ on boot
 
     setprop persist.camera.HAL3.enabled 1
 
+    
+    #Vibrator
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+    
+    #LEDs
+    chmod 0666 /sys/class/leds/red/blink
+    chmod 0666 /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/green/blink
+    chmod 0666 /sys/class/leds/green/brightness
+    chmod 0666 /sys/class/leds/blue/blink
+    chmod 0666 /sys/class/leds/blue/brightness
+    
+    #torch
+    chmod 0666 /sys/devices/soc/soc:qcom,camera-flash/leds/torch-light*/*
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
