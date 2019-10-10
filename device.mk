@@ -434,6 +434,9 @@ MINIMEDIA_SENSORSERVER_DISABLE := 1
 #aethercastctl
 PRODUCT_PROPERTY_OVERRIDES += \
     ubuntu.widi.supported=1
+    
+# OP3 has a too small cache partition
+HALIUM_DATA_AS_CACHE := true
 
 
 # Inherit from oppo-common
