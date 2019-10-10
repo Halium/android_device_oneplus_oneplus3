@@ -32,7 +32,13 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
+on post-fs-data
+    mkdir /data/cache
+    mount none /data/cache /cache bind
+    mkdir /data/cache/recovery
+
 on init
+    mount_all ./fstab.${ro.hardware}
     # Set permissions for persist partition
     mkdir /persist 0771 root system
 
