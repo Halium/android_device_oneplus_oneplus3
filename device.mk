@@ -351,29 +351,32 @@ PRODUCT_COPY_FILES += \
 
 # UBPorts
  PRODUCT_PACKAGES += \
-    libubuntu_application_api \
+    libubuntu_application_api_64 \
     libubuntu_application_api_32 \
     direct_ubuntu_application_sensors_c_api_for_hybris_test \
     direct_ubuntu_application_sensors_for_hybris_test \
     direct_ubuntu_application_gps_c_api_for_hybris_test \
-    libcamera_compat_layer \
+    libcamera_compat_layer_64 \
     libcamera_compat_layer_32 \
-    libmedia_compat_layer \
+    libmedia_compat_layer_64 \
     libmedia_compat_layer_32 \
-    libdroidmedia \
+    libdroidmedia_64 \
     libdroidmedia_32 \
-    libminisf \
+    libminisf_64 \
     libminisf_32 \
-    miniafservice \
-    minimediaservice \
-    minisfservice \
-    libcameraservice \
+    miniafservice_64 \
+    miniafservice_32 \
+    minimediaservice_64 \
+    minimediaservice_32 \
+    minisfservice_64 \
+    minisfservice_32 \
+    libcameraservice_64 \
     libcameraservice_32 \
-    libui_compat_layer \
+    libui_compat_layer_64 \
     libui_compat_layer_32 \
-    libsf_compat_layer \
+    libsf_compat_layer_64 \
     libsf_compat_layer_32 \
-    libaudioflingerglue \
+    libaudioflingerglue_64 \
     libaudioflingerglue_32
 
 # for off charging mode
