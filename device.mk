@@ -278,7 +278,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
-    init.recovery.oneplus3.rc \
+    init.recovery.qcom.rc \
     ueventd.qcom.rc
 
 # Recovery
