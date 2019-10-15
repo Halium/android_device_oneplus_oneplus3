@@ -224,9 +224,11 @@ on boot
     chmod 0666 /sys/class/leds/blue/brightness
     
     #torch
-    chmod 0666 /sys/class/leds/led\:switch/brightness
+    chmod 0666 /sys/class/leds/led:switch/brightness
     chmod 0666 /sys/class/leds/torch-light0/brightness
     chmod 0666 /sys/class/leds/torch-light1/brightness
+    chmod 0666 /sys/class/leds/led:torch_0/brightness
+    chmod 0666 /sys/class/leds/led:torch_1/brightness
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
