@@ -25,6 +25,7 @@ etc/camera/imx298_chromatix.xml
 etc/camera/s5k3p8_chromatix.xml
 etc/camera/s5k3p8sp_chromatix.xml
 lib/hw/camera.msm8996.so
+lib/lib_oneplus_watermark.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libqomx_core.so
@@ -301,6 +302,7 @@ etc/oneplus3T_vstab_db_720p_video_0.config
 etc/oneplus3T_vstab_db_720p_video_1.config
 lib/lib_oneplus_facebeauty.so
 lib/lib_oneplus_md.so
+lib/lib_oneplus_watermark.so
 lib/libFNVfbEngineHAL.so
 lib/libmms_gyro_vstab_auth.so
 lib/libmms_gyro_vstab.so
@@ -468,10 +470,10 @@ etc/firmware/a530_zap.b02
 etc/firmware/a530_zap.elf
 etc/firmware/a530_zap.mdt
 etc/firmware/a530_zap-pro.b00|8fbe425d7edcc44808e010495b1256de9dc97623
-etc/firmware/a530_zap-pro.b01|ef38ad5dee96ee6408093df84838fb8513579df1
+etc/firmware/a530_zap-pro.b01|544a6c0f0ce21fb1448288346a9a5016e0e408d9
 etc/firmware/a530_zap-pro.b02|657ce04bbb8cc88ccead7c22ed1e3ca1776c7518
-etc/firmware/a530_zap-pro.elf|c93106e08f7032614c10b7d0a0e82a6cc7d6e8c2
-etc/firmware/a530_zap-pro.mdt|8a119dbea3b21e236116c6a7bef743beceb1709e
+etc/firmware/a530_zap-pro.elf|d9e04a54050e1051229c8117bffafe6dbc5b2f75
+etc/firmware/a530_zap-pro.mdt|d5ee285b2b9f3348d3bda9ad2503e04a84bb02f5
 etc/firmware/a530v1_pfp.fw
 etc/firmware/a530v1_pm4.fw
 etc/firmware/a530v2_seq.fw2

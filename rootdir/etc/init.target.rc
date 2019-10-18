@@ -46,6 +46,7 @@ on fs
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8996.so|libcamera_shim.so
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -68,7 +69,6 @@ on property:init.svc.bootanim=running
 
 on boot
     start rmt_storage
-    start rfs_access
 # access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch_enable
     chmod 0440 /sys/devices/soc/75ba000.i2c/i2c-12/12-004a/secure_touch
@@ -144,6 +144,8 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/hbm
     chown system graphics /sys/class/graphics/fb0/srgb
     chmod 0664 /sys/class/graphics/fb0/srgb
+    chown system graphics /sys/class/graphics/fb0/dci_p3
+    chmod 0664 /sys/class/graphics/fb0/dci_p3
 
     # Fingerprint
     chmod 0664 /sys/devices/soc/soc:fpc_fpc1020/irq
@@ -209,6 +211,25 @@ on boot
 
     setprop persist.camera.HAL3.enabled 1
 
+    
+    #Vibrator
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+    
+    #LEDs
+    chmod 0666 /sys/class/leds/red/blink
+    chmod 0666 /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/green/blink
+    chmod 0666 /sys/class/leds/green/brightness
+    chmod 0666 /sys/class/leds/blue/blink
+    chmod 0666 /sys/class/leds/blue/brightness
+    
+    #torch
+    chmod 0666 /sys/class/leds/led:switch/brightness
+    chmod 0666 /sys/class/leds/torch-light0/brightness
+    chmod 0666 /sys/class/leds/torch-light1/brightness
+    chmod 0666 /sys/class/leds/led:torch_0/brightness
+    chmod 0666 /sys/class/leds/led:torch_1/brightness
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
@@ -227,23 +248,26 @@ service qfp-daemon /system/bin/qfp-daemon
     class late_start
     user system
     group system drmrpc diag
+    disabled
 
 service qvop-daemon /system/bin/qvop-daemon
     class late_start
     user system
     group system drmrpc
+    disabled
 
 service qvrd /system/vendor/bin/qvrservice
     class late_start
     user system
     group system camera graphics
     socket qvrservice stream 0666 system system
+    disabled
 
 #Start up peripheral manager
 service per_mgr /system/bin/pm-service
     class core
     user system
-    group system net_raw
+    group system
     ioprio rt 4
     writepid /dev/cpuset/system-background/tasks
 
@@ -294,7 +318,7 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
-writepid /dev/cpuset/system-background/tasks
+   writepid /dev/cpuset/system-background/tasks
 
 service gamed /system/vendor/bin/gamed
    class main
@@ -308,11 +332,13 @@ service seempd /system/bin/seempd
    user system
    group system
    socket seempdw dgram 0666 system system
+   disabled
 
 service secotad /system/bin/secotad
    class late_start
    user system
    group system
+   disabled
 
 #service mpdecision /system/bin/mpdecision --avg_comp
 #   user root
@@ -334,6 +360,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    writepid /dev/cpuset/system-background/tasks
+   disabled
 
 #service security-check1 /sbin/security_boot_check system
 #    class core
@@ -343,11 +370,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-   writepid /dev/cpuset/system-background/tasks
 
 service adsprpcd /system/bin/adsprpcd
    class main
@@ -401,6 +423,7 @@ service usf_proximity /system/bin/usf_proximity
     class late_start
     user system
     group system inet audio
+    disabled
 
 service usf_pairing /system/bin/usf_pairing
     user system
@@ -481,6 +504,7 @@ service dts_configurator /system/bin/dts_configurator
     user system
     group system media audio
     oneshot
+    disabled
 
 service dtseagleservice /system/bin/dts_eagle_service
     class late_start
@@ -488,8 +512,8 @@ service dtseagleservice /system/bin/dts_eagle_service
     group audio media
     disabled
 
-on property:init.svc.dts_configurator=stopped
-    start dtseagleservice
+# on property:init.svc.dts_configurator=stopped
+#    start dtseagleservice
 
 service ppd /system/vendor/bin/mm-pp-dpps
     class late_start
@@ -520,6 +544,7 @@ service tlocd /system/bin/tloc_daemon
     class late_start
     user system
     group drmrpc gps net_raw
+    disabled
 
 service energy-awareness /system/bin/energy-awareness
     class main
@@ -531,11 +556,13 @@ service hvdcp_opti /system/bin/hvdcp_opti
     class main
     user root
     group root
+    disabled
 
 service mdtpd /system/vendor/bin/mdtpd
    class late_start
    user root
    group system radio drmrpc
+   disabled
 
 on charger
     write /sys/devices/system/cpu/cpu2/online 0
@@ -543,7 +570,6 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    start hvdcp_opti
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKLG
 	class late_start
@@ -555,12 +581,14 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 	disabled
 	oneshot
 
+# useless (payment)
 service dashd /sbin/dashd
     class core
     critical
     seclabel u:r:dashd:s0
     group root system
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 service ifaadaemon /system/bin/ifaadaemon
     class late_start

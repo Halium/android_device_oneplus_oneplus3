@@ -100,6 +100,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=3072 \
     ro.hwui.text_large_cache_height=2048
 
+# Mir
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.qti_bsp.abi=1
+
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
@@ -147,7 +151,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
+    libcamera_shim
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -256,6 +261,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8996
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.xml:system/etc/powerhint.xml
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
@@ -270,7 +278,12 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
+    init.recovery.qcom.rc \
     ueventd.qcom.rc
+
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_op3
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -281,6 +294,20 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996
+
+# Thermal
+PRODUCT_PACKAGES += \
+    thermal.msm8996
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
+
+# VR
+PRODUCT_PACKAGES += \
+    vr.msm8996
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -300,10 +327,96 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/wifi/hostapd.deny:system/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/rootdir/etc/init_wlan_bt.sh:system/etc/init_wlan_bt.sh
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/lib/udev/rules.d/70-android.rules \
+    $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/usr/lib/lxc-android-config/70-android.rules \
+    $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/etc/udev/rules.d/70-android.rules \
+    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/adbd.conf \
+    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/android-tools-adb.conf \
+    $(LOCAL_PATH)/ubuntu/timekeeper.conf:system/halium/etc/init/timekeeper.conf \
+    $(LOCAL_PATH)/ubuntu/ofono.override:system/halium/etc/init/ofono.override \
+    $(LOCAL_PATH)/ubuntu/config.xml:system/halium/usr/share/powerd/device_configs/config-default.xml \
+    $(LOCAL_PATH)/ubuntu/android.conf:system/halium/etc/ubuntu-touch-session.d/android.conf \
+    $(LOCAL_PATH)/ubuntu/bluetooth-touch-oneplus3.conf:system/halium/etc/init/bluetooth-touch-android.conf \
+    $(LOCAL_PATH)/ubuntu/touch.pa:system/halium/etc/pulse/touch.pa \
+    $(LOCAL_PATH)/ubuntu/anbox-tool:system/halium/usr/bin/anbox-tool \
+    $(LOCAL_PATH)/ubuntu/hciattach:system/bin/hciattach \
+    $(LOCAL_PATH)/ubuntu/usr.bin.media-hub-server:system/halium/etc/apparmor.d/local/usr.bin.media-hub-server \
+    $(LOCAL_PATH)/ubuntu/base:system/halium/etc/apparmor.d/abstractions/base \
+    $(LOCAL_PATH)/ubuntu/environment:system/halium/etc/environment
+
+# UBPorts
+ PRODUCT_PACKAGES += \
+    libubuntu_application_api \
+    direct_ubuntu_application_sensors_c_api_for_hybris_test \
+    direct_ubuntu_application_sensors_for_hybris_test \
+    direct_ubuntu_application_gps_c_api_for_hybris_test \
+    libcamera_compat_layer \
+    libmedia_compat_layer \
+    libdroidmedia \
+    libminisf \
+    miniafservice \
+    minimediaservice \
+    minisfservice \
+    libcameraservice\
+    libui_compat_layer \
+    libsf_compat_layer \
+    libaudioflingerglue \
+    camera_service
+
+
+# for off charging mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+    
+    
+# telepathy-ofono quirks
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.t-o.quirk.forcesink=sink.primary_output \
+    ro.t-o.quirk.forcesource=source.record_24_primary_input
+
+#droidmedia
+MINIMEDIA_SENSORSERVER_DISABLE := 1
+
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.qti.sdk.sensors.gestures=true \
+#    ro.qti.sensors.pedometer=true \
+#    ro.qti.sensors.step_detector=true \
+#    ro.qti.sensors.step_counter=true \
+#    ro.qti.sensors.pam=true \
+#    ro.qti.sensors.scrn_ortn=true \
+#    ro.qti.sensors.smd=true \
+#    ro.qti.sensors.game_rv=true \
+#    ro.qti.sensors.georv=true \
+#    ro.qti.sensors.cmc=true \
+#    ro.qti.sensors.bte=true \
+#    ro.qti.sensors.fns=true \
+#    ro.qti.sensors.qmd=true \
+#    ro.qti.sensors.amd=true \
+#    ro.qti.sensors.rmd=true \
+#    ro.qti.sensors.vmd=true \
+#    ro.qti.sensors.gtap=true \
+#    ro.qti.sensors.tap=true \
+#    ro.qti.sensors.facing=true \
+#    ro.qti.sensors.tilt=true \
+#    ro.qti.sensors.tilt_detector=true \
+#    ro.qti.sensors.dpc=true \
+#    ro.qti.sensors.als_scale=1 \
+#    ro.qti.sensors.wu=true
+
+#aethercastctl
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
+    
+# OP3 has a too small cache partition
+HALIUM_DATA_AS_CACHE := true
+
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)

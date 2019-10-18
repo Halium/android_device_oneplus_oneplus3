@@ -1,0 +1,5 @@
+on fs
+    mount_all ./fstab.${ro.hardware}
+    mkdir /data/cache
+    mount none /data/cache /cache bind
+    mkdir /data/cache/recovery
