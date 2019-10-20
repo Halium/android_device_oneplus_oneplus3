@@ -165,9 +165,29 @@ etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
 etc/cacert_location.pem
 etc/xtra_root_cert.pem
+-lib/libloc_api_v02.so
 -lib64/libloc_api_v02.so
+lib/libloc_ds_api.so
 lib64/libloc_ds_api.so
 vendor/bin/slim_daemon
+vendor/lib/hw/flp.default.so
+vendor/lib/libDRPlugin.so
+vendor/lib/libalarmservice_jni.so
+vendor/lib/libdataitems.so
+vendor/lib/libdrplugin_client.so
+vendor/lib/libevent_observer.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/libloc_ext.so
+vendor/lib/liblocationservice.so
+vendor/lib/liblocationservice_glue.so
+vendor/lib/liblowi_client.so
+vendor/lib/libulp2.so
+vendor/lib/libxt_native.so
+vendor/lib/libxtadapter.so
+vendor/lib/libxtwifi_ulp_adaptor.so
 vendor/lib64/hw/flp.default.so
 vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libasn1cper.so
@@ -220,8 +240,12 @@ vendor/lib/libOpenCL.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
 vendor/lib/libRSDriver_adreno.so
+vendor/lib/libscalar.so
 vendor/lib/libsd_sdk_display.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-diag.so
 -vendor/lib/libsdm-disp-apis.so
+vendor/lib/libsdmextension.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -276,6 +300,7 @@ vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
 # Network
+vendor/lib/libconnctrl.so
 vendor/lib64/libconnctrl.so
 vendor/lib64/libQtiTether.so
 
@@ -345,6 +370,7 @@ etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 vendor/bin/qti
 vendor/lib/libmdmdetect.so
+vendor/lib/libnetmgr.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
