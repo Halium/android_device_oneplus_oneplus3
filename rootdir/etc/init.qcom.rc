@@ -45,6 +45,11 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
+on fs
+    mount_all ./fstab.${ro.hardware}
+    mkdir /data/cache
+    mount none /data/cache /cache bind
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
