@@ -337,8 +337,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/lib/udev/rules.d/70-android.rules \
     $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/usr/lib/lxc-android-config/70-android.rules \
     $(LOCAL_PATH)/ubuntu/70-oneplus3.rules:system/halium/etc/udev/rules.d/70-android.rules \
-    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/adbd.conf \
-    $(LOCAL_PATH)/ubuntu/adbd.conf:system/halium/etc/init/android-tools-adb.conf \
     $(LOCAL_PATH)/ubuntu/timekeeper.conf:system/halium/etc/init/timekeeper.conf \
     $(LOCAL_PATH)/ubuntu/ofono.override:system/halium/etc/init/ofono.override \
     $(LOCAL_PATH)/ubuntu/config.xml:system/halium/usr/share/powerd/device_configs/config-default.xml \
@@ -346,7 +344,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/bluetooth-touch-oneplus3.conf:system/halium/etc/init/bluetooth-touch-android.conf \
     $(LOCAL_PATH)/ubuntu/touch.pa:system/halium/etc/pulse/touch.pa \
     $(LOCAL_PATH)/ubuntu/anbox-tool:system/halium/usr/bin/anbox-tool \
-    $(LOCAL_PATH)/ubuntu/hciattach:system/bin/hciattach \
     $(LOCAL_PATH)/ubuntu/usr.bin.media-hub-server:system/halium/etc/apparmor.d/local/usr.bin.media-hub-server \
     $(LOCAL_PATH)/ubuntu/base:system/halium/etc/apparmor.d/abstractions/base \
     $(LOCAL_PATH)/ubuntu/environment:system/halium/etc/environment
