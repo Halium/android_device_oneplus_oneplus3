@@ -238,11 +238,11 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     writepid /dev/cpuset/system-background/tasks
 
 #fingerprint service
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group system
-    writepid /dev/cpuset/system-background/tasks
+#service fingerprintd /system/bin/fingerprintd
+#    class late_start
+#    user system
+#    group system
+#    writepid /dev/cpuset/system-background/tasks
 
 service qfp-daemon /system/bin/qfp-daemon
     class late_start
@@ -497,7 +497,7 @@ service imscmservice /system/bin/imscmservice
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
    start ims_rtp_daemon
-   start imscmservice
+#   start imscmservice
 
 service dts_configurator /system/bin/dts_configurator
     class late_start
@@ -570,6 +570,7 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
+    # start hvdcp_opti
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKLG
 	class late_start
