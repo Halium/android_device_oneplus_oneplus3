@@ -718,6 +718,9 @@ service fstman /system/bin/fstman -B -ddd -c /data/misc/wifi/fstman.ini
     disabled
     oneshot
 
+
+
+
 # FST Manager with supplicant - connect to supplicant socket
 service fstman_wlan0 /system/bin/fstman -B -ddd -c /data/misc/wifi/fstman.ini @android:wpa_wlan0
     user wifi
@@ -1085,14 +1088,14 @@ on property:ro.logdumpd.enabled=1
 #    user root
 #    group root
 #    writepid /dev/cpuset/system-background/tasks
-    
+
 service init_wlan_bt /system/bin/sh /system/etc/init_wlan_bt.sh
     class main
     user root
     group root
     oneshot
-    
-    
+
+
 service minimedia /system/bin/minimediaservice
     class main
     user media
@@ -1100,7 +1103,7 @@ service minimedia /system/bin/minimediaservice
     ioprio rt 4
 #   hack to make recorded video playback work
     setenv LD_PRELOAD /system/lib/libOmxVdec.so
-    
+
 service miniafservice /system/bin/miniafservice
     class core
     user root

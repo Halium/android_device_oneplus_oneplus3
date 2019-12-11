@@ -176,9 +176,9 @@ PRODUCT_PACKAGES += \
     qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
 
 # Fingerprint sensor
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    OneplusPocketMode
+#PRODUCT_PACKAGES += \
+#    fingerprintd \
+#    OneplusPocketMode
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \

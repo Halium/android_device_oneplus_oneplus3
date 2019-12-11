@@ -387,7 +387,7 @@ vendor/qcril.db
 
 # Radio - IMS
 bin/ims_rtp_daemon
-bin/imscmservice
+#bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 etc/permissions/imscm.xml
