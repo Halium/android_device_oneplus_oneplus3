@@ -26,29 +26,18 @@
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
     <acdb_ids>
-        <device name="SND_DEVICE_OUT_HANDSET" acdb_id="7" />
-        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15" />
-        <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="10" />
-
-        <device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
-        <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="10" />
-
-        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="40" />
-        <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="42" />
-        <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="8" />
-
-        <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="41" />
-
-        <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="119" />
-
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" acdb_id="35" />
-        <device name="SND_DEVICE_IN_SPEAKER_STEREO_DMIC" acdb_id="35" />
-
-        <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="35" />
+	<!-- empty -->
     </acdb_ids>
     <backend_names>
-      <!-- empty -->
+        <device name="SND_DEVICE_OUT_LINE" backend="headphones" interface="SLIMBUS_6_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="QUAT_MI2S_RX-and-SLIMBUS_6_RX"/>
+        <device name="SND_DEVICE_OUT_VOICE_LINE" backend="headphones" interface="SLIMBUS_6_RX"/>
+
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones"/>
+        <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones"/>
+        <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" backend="headphones"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" backend="quat_i2s"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="quat_i2s"/>
     </backend_names>
 
     <pcm_ids>
