@@ -221,8 +221,8 @@ on boot
     chmod 0666 /sys/class/leds/green/brightness
     chmod 0666 /sys/class/leds/blue/brightness
 
-    chown system system /sys/class/leds/rgb/rgb_blink
-    chmod 0666 /sys/class/leds/rgb/rgb_blink
+    #chown system system /sys/class/leds/rgb/rgb_blink
+    #chmod 0666 /sys/class/leds/rgb/rgb_blink
 
     setprop persist.camera.HAL3.enabled 1
 
@@ -648,7 +648,7 @@ on property:sys.rainbow.recovery=1
     write /sys/class/leds/blue/pause_hi 0
     write /sys/class/leds/blue/pause_lo 0
     write /sys/class/leds/blue/ramp_step_ms 100
-    write /sys/class/leds/rgb/rgb_blink 1
+    #write /sys/class/leds/rgb/rgb_blink 1
 
-on property:sys.rainbow.recovery=0
-    write /sys/class/leds/rgb/rgb_blink 0
+#on property:sys.rainbow.recovery=0
+#    write /sys/class/leds/rgb/rgb_blink 0
