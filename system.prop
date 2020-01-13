@@ -1,29 +1,8 @@
-# Audio
-af.fast_track_multiplier=1
-audio_hal.period_size=192
-ro.qc.sdk.audio.fluencetype=fluence
+#Fixes ubuntu-touch
+#https://github.com/ubports/android_device_oneplus_bacon-1/blob/ubp-5.1/system.prop
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-tunnel.audio.encode=false
-audio.offload.buffer.size.kb=64
-audio.offload.video=true
-audio.offload.pcm.16bit.enable=true
-audio.offload.pcm.24bit.enable=true
-audio.offload.track.enable=true
-audio.deep_buffer.media=true
-audio.heap.size.multiplier=7
-use.voice.path.for.pcm.voip=true
-audio.offload.multiaac.enable=true
-audio.dolby.ds2.enabled=false
-audio.dolby.ds2.hardbypass=false
-audio.offload.multiple.enabled=false
-audio.offload.passthrough=false
-ro.qc.sdk.audio.ssr=false
-audio.offload.gapless.enabled=true
-audio.safx.pbe.enabled=true
-audio.parser.ip.buffer.size=262144
-qcom.hw.aac.encoder=true
+persist.audio.fluence.speaker=false
 
 # Battery
 ro.cutoff_voltage_mv=3250

@@ -32,3 +32,7 @@ CM_BUILD := oneplus3
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 TARGET_VENDOR := oneplus
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=msm8996
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=OnePlus3 PRODUCT_NAME=OnePlus3
