@@ -230,6 +230,10 @@ on boot
     #Vibrator
     chmod 0666 /sys/class/timed_output/vibrator/enable
 
+    #Battery charging Mgnt
+    chmod 0666 /sys/class/power_supply/battery/charging_enabled
+
+
     #LEDs
     chmod 0666 /sys/class/leds/red/blink
     chmod 0666 /sys/class/leds/red/brightness
