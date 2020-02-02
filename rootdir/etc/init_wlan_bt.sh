@@ -29,12 +29,10 @@ while true; do
     sleep 2
     if [ ! -f /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlp1s0/address ]; then
         echo sta > /sys/module/wlan/parameters/fwpath
-        sleep 60 #wait 1 min after the action, unlikely user will switch 0ff/on/off then on in a minute.
-        #TODO Look on dbus side to capture the wifi reactivation ?
-    #else
+    else
         # enable bluetooth here since we have to wait for wlan to be initialized
         #enable_bt
-        #break
+        break
     fi
 done
 
