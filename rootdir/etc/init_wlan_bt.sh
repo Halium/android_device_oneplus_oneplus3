@@ -9,7 +9,7 @@ rm /data/misc/wifi/WCNSS_qcom_wlan_nv.bin
 export LD_LIBRARY_PATH=/vendor/lib64:/system/lib64:/vendor/lib:/system/lib
 #logwrapper /system/bin/conn_init
 
-echo 1 > /dev/wcnss_wlan
+#echo 1 > /dev/wcnss_wlan
 
 enable_bt () {
 

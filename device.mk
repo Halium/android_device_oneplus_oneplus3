@@ -344,8 +344,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/usr.bin.media-hub-server:system/halium/etc/apparmor.d/local/usr.bin.media-hub-server \
     $(LOCAL_PATH)/ubuntu/base:system/halium/etc/apparmor.d/abstractions/base \
     $(LOCAL_PATH)/ubuntu/tri_state.py:system/halium/usr/share/tri_state_switch/tri_state.py \
+    $(LOCAL_PATH)/ubuntu/wlan_restart.py:system/halium/usr/share/wlan_restart/wlan_restart.py \
     $(LOCAL_PATH)/ubuntu/environment:system/halium/etc/environment \
-    $(LOCAL_PATH)/ubuntu/usensord.conf:system/halium/usr/share/upstart/sessions/usensord.conf
+    $(LOCAL_PATH)/ubuntu/usensord.conf:system/halium/usr/share/upstart/sessions/usensord.conf \
+    $(LOCAL_PATH)/ubuntu/device-hacks.conf:system/halium/etc/init/device-hacks.conf
 
 
 # UBPorts
