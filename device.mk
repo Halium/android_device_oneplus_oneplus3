@@ -107,6 +107,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Ubuntu Touch Fix MTP connection
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/halium/usr/share/usbinit/setupusb:system/halium/usr/share/usbinit/setupusb \
+    $(LOCAL_PATH)/rootdir/system/halium/etc/init/mtp-state.conf:system/halium/etc/init/mtp-state.conf
+
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -272,11 +277,11 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.sh \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh \
     init.target.rc \
     init.recovery.qcom.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.qcom.usb.rc
+#   init.qcom.usb.sh
 
 # Recovery
 PRODUCT_PACKAGES += \

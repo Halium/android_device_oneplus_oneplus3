@@ -117,7 +117,7 @@ ro.sys.sdcardfs=true
 persist.timed.enable=true
 
 # Wifi
-wifi.interface=wlan0
+wifi.interface=wlp1s0
 
 # Mir
 ro.build.qti_bsp.abi=1
