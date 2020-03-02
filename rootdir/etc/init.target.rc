@@ -226,6 +226,9 @@ on boot
 
     setprop persist.camera.HAL3.enabled 1
 
+    # mtp on boot
+    setprop persist.sys.usb.config mtp
+
 
     #Vibrator
     chmod 0666 /sys/class/timed_output/vibrator/enable
