@@ -128,7 +128,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/listen_platform_info.xml:system/etc/listen_platform_info.xml \
@@ -378,12 +377,7 @@ PRODUCT_COPY_FILES += \
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
-    
-    
-# telepathy-ofono quirks
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.t-o.quirk.forcesink=sink.primary_output \
-    ro.t-o.quirk.forcesource=source.record_24_primary_input
+
 
 #droidmedia
 MINIMEDIA_SENSORSERVER_DISABLE := 1
