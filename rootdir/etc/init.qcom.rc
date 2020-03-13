@@ -503,7 +503,6 @@ service rfs_access /system/bin/rfs_access
    user root
    group system net_raw
    writepid /dev/cpuset/system-background/tasks
-   disabled
 
 service tftp_server /system/bin/tftp_server
    class core
