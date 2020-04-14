@@ -26,20 +26,4 @@ while [ ! $j -gt $MAXTRIES ]  ; do
     j=$((j + 1))
 done
 
-i=1
-while [ ! $i -gt $MAXTRIES ]  ; do
-    /system/bin/hciattach_rome /dev/ttyHS0 qca 3000000 flow sleep -t 2
-    sleep 3
-    if [ -e /sys/class/bluetooth/hci0 ] ; then
-        echo "bluetooth : hci found"
-        exit 0
-    fi
-    sleep 1
-    i=$((i + 1))
-    if [ $i == $MAXTRIES ] ; then
-        echo "bluetooth : failed to get activated"
-        # must have gotten through all our retries, fail
-        exit 1
-    fi
-
 done

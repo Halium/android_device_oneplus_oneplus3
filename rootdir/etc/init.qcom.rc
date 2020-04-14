@@ -31,6 +31,7 @@ import init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    chmod 0555 /system/bin/hciattach_rome
 
 on init
     # Set permissions for persist partition
