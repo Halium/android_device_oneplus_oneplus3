@@ -122,20 +122,6 @@ wifi.interface=wlp1s0
 # Mir
 ro.build.qti_bsp.abi=1
 
-# qualcomm sensors enable https://github.com/audahadi/android_device_xiaomi_cancro/commit/e71d6df2abce713313b6c447643e1b88d0f8c888
-#ro.qualcomm.sensors.qmd=true
-#ro.qualcomm.sensors.smd=true
-#ro.qc.sdk.sensors.gestures=true
-#ro.qualcomm.sensors.pedometer=true
-#ro.qualcomm.sensors.pam=true
-#ro.qualcomm.sensors.scrn_ortn=true
-#ro.qc.sensors.step_detector=true
-#ro.qc.sensors.step_counter=true
-#ro.qualcomm.sensors.georv=true
-#debug.qualcomm.sns.hal=w
-#debug.qualcomm.sns.daemon=w
-#debug.qualcomm.sns.libsensor1=w
-#ro.qc.sensors.wl_dis=true
 
 # HDMI out
 com.qc.hardware=true

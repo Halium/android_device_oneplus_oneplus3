@@ -186,7 +186,7 @@
 
   # Workaround https://launchpad.net/bugs/359338 until upstream handles stacked
   # filesystems generally. This does not appreciably decrease security with
-  # Ubuntu profiles because the user is exp                                                                           ected to have access to files owned
+  # Ubuntu profiles because the user is expected to have access to files owned
   # by him/her. Exceptions to this are explicit in the profiles. While this rule
   # grants access to those exceptions, the intended privacy is maintained due to
   # the encrypted contents of the files in this directory. Files in this
@@ -197,4 +197,10 @@
   # encrypted ~/.Private and old-style encrypted $HOME
   owner @{HOME}/.Private/** mrixwlk,
   # new-style encrypted $HOME
-owner @{HOMEDIRS}/.ecryptfs/*/.Private/** mrixwlk,
+  owner @{HOMEDIRS}/.ecryptfs/*/.Private/** mrixwlk,
+
+  # media_codecs
+  /{android/,}system/etc/media_codecs_performance.xml      r,
+  /{android/,}system/etc/media_codecs_google_audio.xml     r,
+  /{android/,}system/etc/media_codecs_google_telephony.xml r,
+  /{android/,}system/etc/media_codecs_google_video.xml     r,
